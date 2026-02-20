@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>White Orthodontics — 2026 Strategic Goals</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2744;
+    --gold: #c8a45e;
+    --white: #fafaf8;
+    --slate: #6b7a8d;
+    --blue: #3b7fc4;
+    --blue-light: #e8f0fa;
+    --green: #3a8a6e;
+    --green-light: #e6f4ee;
+    --coral: #c45d4e;
+    --coral-light: #fae8e6;
+    --purple: #7c5fbf;
+    --bg: #f0ede6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--navy);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(200,164,94,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 100%, rgba(59,130,196,0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+    animation: fadeDown 0.6s ease-out;
+  }
+  .header-label {
+    font-size: 11px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(26px, 4vw, 40px);
+    color: var(--navy);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .header-sub {
+    font-size: 14px;
+    color: var(--slate);
+    font-weight: 500;
+  }
+
+  /* ── TREE ── */
+  .tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .root-node {
+    background: var(--navy);
+    color: var(--white);
+    padding: 18px 40px;
+    border-radius: 14px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(26,39,68,0.18);
+    animation: fadeDown 0.6s ease-out 0.1s both;
+    border-bottom: 3px solid var(--gold);
+  }
+  .root-node small {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+
+  /* Connectors */
+  .root-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+  }
+  .root-vert { width: 2.5px; height: 25px; background: var(--navy); opacity: 0.5; }
+  .root-horiz-wrapper { width: 100%; height: 25px; position: relative; }
+  .root-horiz {
+    position: absolute; top: 0;
+    left: calc(100% / 6); right: calc(100% / 6);
+    height: 2.5px; background: var(--navy); opacity: 0.3;
+  }
+  .root-drop { position: absolute; top: 0; width: 2.5px; height: 25px; opacity: 0.5; }
+  .root-drop.left { left: calc(100% / 6); background: var(--coral); }
+  .root-drop.center { left: 50%; transform: translateX(-50%); background: var(--blue); }
+  .root-drop.right { right: calc(100% / 6); background: var(--green); }
+
+  .pillar-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    width: 100%;
+  }
+
+  .pillar {
+    border-radius: 14px;
+    padding: 22px 20px 18px;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .pillar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(0,0,0,0.08);
+  }
+  .pillar-icon {
+    width: 46px; height: 46px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 12px; font-size: 22px;
+  }
+  .pillar h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px; font-weight: 400; margin-bottom: 6px;
+  }
+  .pillar > p { font-size: 12px; color: var(--slate); line-height: 1.5; }
+
+  .pillar.accountability {
+    background: var(--coral-light); border-color: rgba(196,93,78,0.2);
+    animation: fadeUp 0.5s ease-out 0.3s both;
+  }
+  .pillar.accountability .pillar-icon { background: var(--coral); color: white; }
+  .pillar.accountability h2 { color: var(--coral); }
+
+  .pillar.developing {
+    background: var(--blue-light); border-color: rgba(59,127,196,0.2);
+    animation: fadeUp 0.5s ease-out 0.4s both;
+  }
+  .pillar.developing .pillar-icon { background: var(--blue); color: white; }
+  .pillar.developing h2 { color: var(--blue); }
+
+  .pillar.clinical {
+    background: var(--green-light); border-color: rgba(58,138,110,0.2);
+    animation: fadeUp 0.5s ease-out 0.5s both;
+  }
+  .pillar.clinical .pillar-icon { background: var(--green); color: white; }
+  .pillar.clinical h2 { color: var(--green); }
+
+  .micro-connector {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px; width: 100%; height: 28px;
+  }
+  .micro-col { display: flex; justify-content: center; }
+  .micro-line { width: 2px; height: 100%; opacity: 0.35; }
+  .micro-line.coral { background: var(--coral); }
+  .micro-line.blue { background: var(--blue); }
+  .micro-line.green { background: var(--green); }
+
+  /* ── INITIATIVE GRID ── */
+  .initiative-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    width: 100%;
+  }
+  .initiative-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* ── COLLAPSIBLE CARDS ── */
+  .initiative {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    border-left: 4px solid transparent;
+    overflow: hidden;
+    transition: box-shadow 0.25s ease;
+  }
+  .initiative:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+  }
+  .initiative.coral-border { border-left-color: var(--coral); }
+  .initiative.blue-border { border-left-color: var(--blue); }
+  .initiative.green-border { border-left-color: var(--green); }
+
+  .init-header {
+    padding: 14px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .init-header:hover { background: rgba(0,0,0,0.015); }
+  .init-header-left { flex: 1; }
+
+  .init-title {
+    font-weight: 600; font-size: 13.5px; color: var(--navy); margin-bottom: 2px;
+  }
+  .init-subtitle {
+    font-size: 11.5px; color: var(--slate); line-height: 1.4; font-weight: 400;
+  }
+
+  .chevron {
+    width: 20px; height: 20px; flex-shrink: 0;
+    transition: transform 0.3s ease;
+    color: var(--slate); opacity: 0.5;
+  }
+  .initiative.open .chevron { transform: rotate(180deg); }
+
+  .init-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s ease, padding 0.3s ease;
+    padding: 0 16px;
+  }
+  .initiative.open .init-details {
+    max-height: 800px;
+    padding: 0 16px 16px;
+  }
+  .init-details-inner {
+    border-top: 1px solid rgba(0,0,0,0.06);
+    padding-top: 12px;
+  }
+
+  .detail-item {
+    display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px;
+  }
+  .detail-item:last-child { margin-bottom: 0; }
+
+  .detail-bullet {
+    width: 6px; height: 6px; border-radius: 50%;
+    margin-top: 5px; flex-shrink: 0;
+  }
+  .detail-bullet.coral { background: var(--coral); opacity: 0.5; }
+  .detail-bullet.blue { background: var(--blue); opacity: 0.5; }
+  .detail-bullet.green { background: var(--green); opacity: 0.5; }
+
+  .detail-text {
+    font-size: 12px; color: var(--navy); line-height: 1.5;
+  }
+  .detail-text strong { font-weight: 600; }
+  .detail-text span { color: var(--slate); font-weight: 400; }
+
+  /* Sub-details (nested list) */
+  .sub-details {
+    margin-top: 8px;
+    margin-left: 16px;
+    padding-left: 12px;
+    border-left: 2px solid rgba(0,0,0,0.06);
+  }
+  .sub-item {
+    display: flex; align-items: flex-start; gap: 8px;
+    margin-bottom: 7px; font-size: 11.5px; color: var(--slate); line-height: 1.45;
+  }
+  .sub-item:last-child { margin-bottom: 0; }
+  .sub-bullet {
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--slate); opacity: 0.35;
+    margin-top: 6px; flex-shrink: 0;
+  }
+
+  /* Handoff chain styling */
+  .handoff-chain {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .handoff-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--navy);
+    line-height: 1.4;
+    padding: 6px 10px;
+    background: rgba(59,127,196,0.04);
+    border-radius: 6px;
+  }
+  .handoff-arrow {
+    color: var(--blue);
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+    opacity: 0.6;
+  }
+  .handoff-label { font-weight: 500; }
+  .handoff-context { color: var(--slate); font-weight: 400; font-size: 10.5px; }
+
+  /* Connection badge */
+  .connection-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-top: 10px;
+  }
+  .connection-badge.green-link {
+    background: rgba(58,138,110,0.1); color: var(--green);
+  }
+  .connection-badge.blue-link {
+    background: rgba(59,127,196,0.1); color: var(--blue);
+  }
+  .badge-dot {
+    width: 5px; height: 5px; border-radius: 50%;
+  }
+  .connection-badge.green-link .badge-dot { background: var(--green); }
+  .connection-badge.blue-link .badge-dot { background: var(--blue); }
+
+  /* Toggle all */
+  .toggle-all-bar {
+    display: flex; justify-content: flex-end;
+    margin-bottom: 10px;
+    animation: fadeUp 0.4s ease-out 0.52s both;
+  }
+  .toggle-all-btn {
+    background: none;
+    border: 1.5px solid rgba(26,39,68,0.15);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; font-weight: 600;
+    color: var(--slate);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.5px;
+  }
+  .toggle-all-btn:hover {
+    background: var(--white);
+    border-color: var(--navy);
+    color: var(--navy);
+  }
+
+  /* ── SHARED NODE ── */
+  .shared-section {
+    width: 100%;
+    margin-top: 40px;
+    animation: fadeUp 0.5s ease-out 1.1s both;
+  }
+  .shared-label {
+    text-align: center;
+    font-size: 10px; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--slate);
+    font-weight: 700; margin-bottom: 12px;
+  }
+  .shared-drop {
+    width: 2px; height: 20px; margin: 0 auto;
+    background: repeating-linear-gradient(to bottom, var(--purple) 0px, var(--purple) 4px, transparent 4px, transparent 8px);
+    opacity: 0.5;
+  }
+  .shared-node {
+    max-width: 560px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(196,93,78,0.05), rgba(59,127,196,0.05));
+    border: 2px dashed rgba(124,95,191,0.3);
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow 0.25s ease;
+  }
+  .shared-node:hover {
+    box-shadow: 0 8px 28px rgba(124,95,191,0.1);
+  }
+  .shared-header {
+    padding: 22px 24px 14px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .shared-icon {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--coral), var(--blue));
+    color: white;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 10px; font-size: 20px;
+    box-shadow: 0 4px 16px rgba(124,95,191,0.2);
+  }
+  .shared-node h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px; font-weight: 400; color: var(--purple);
+    margin-bottom: 6px;
+  }
+  .shared-desc {
+    font-size: 12.5px; color: var(--slate); line-height: 1.5; max-width: 440px;
+  }
+  .overlap-tags {
+    display: flex; justify-content: center;
+    gap: 8px; margin-top: 12px; flex-wrap: wrap;
+  }
+  .overlap-tag {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 20px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .overlap-tag.acct { background: rgba(196,93,78,0.12); color: var(--coral); }
+  .overlap-tag.dev { background: rgba(59,127,196,0.12); color: var(--blue); }
+  .dot {
+    width: 6px; height: 6px; border-radius: 50%; display: inline-block;
+  }
+  .overlap-tag.acct .dot { background: var(--coral); }
+  .overlap-tag.dev .dot { background: var(--blue); }
+
+  .shared-details {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.45s ease, padding 0.3s ease;
+    padding: 0 24px;
+  }
+  .shared-node.open .shared-details {
+    max-height: 500px; padding: 0 24px 20px;
+  }
+  .shared-details-inner {
+    border-top: 1px solid rgba(124,95,191,0.15);
+    padding-top: 14px;
+  }
+  .shared-detail-item {
+    display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px;
+  }
+  .shared-detail-item:last-child { margin-bottom: 0; }
+  .shared-bullet {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--purple); opacity: 0.4;
+    margin-top: 5px; flex-shrink: 0;
+  }
+
+  .shared-chevron-row {
+    display: flex; justify-content: center; padding-bottom: 6px;
+  }
+  .shared-chevron {
+    width: 18px; height: 18px;
+    color: var(--purple); opacity: 0.4;
+    transition: transform 0.3s ease;
+  }
+  .shared-node.open .shared-chevron { transform: rotate(180deg); }
+
+  /* ── LEGEND ── */
+  .legend {
+    display: flex; justify-content: center;
+    gap: 24px; margin-top: 48px; flex-wrap: wrap;
+    animation: fadeUp 0.5s ease-out 1.2s both;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 11px; font-weight: 600; color: var(--slate);
+  }
+  .legend-swatch { width: 12px; height: 12px; border-radius: 3px; }
+
+  .footer {
+    text-align: center; margin-top: 48px;
+    font-size: 11px; color: var(--slate); opacity: 0.6;
+    animation: fadeUp 0.4s ease-out 1.3s both;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .init-anim-1 { animation: fadeUp 0.4s ease-out 0.55s both; }
+  .init-anim-2 { animation: fadeUp 0.4s ease-out 0.60s both; }
+  .init-anim-3 { animation: fadeUp 0.4s ease-out 0.65s both; }
+  .init-anim-4 { animation: fadeUp 0.4s ease-out 0.70s both; }
+  .init-anim-5 { animation: fadeUp 0.4s ease-out 0.75s both; }
+  .init-anim-6 { animation: fadeUp 0.4s ease-out 0.80s both; }
+  .init-anim-7 { animation: fadeUp 0.4s ease-out 0.85s both; }
+  .init-anim-8 { animation: fadeUp 0.4s ease-out 0.90s both; }
+  .init-anim-9 { animation: fadeUp 0.4s ease-out 0.95s both; }
+  .init-anim-10 { animation: fadeUp 0.4s ease-out 1.0s both; }
+  .init-anim-11 { animation: fadeUp 0.4s ease-out 1.05s both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .pillar-row, .initiative-row, .micro-connector {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .micro-connector, .root-connector { display: none; }
+    .shared-node { max-width: 100%; }
+    .root-node { font-size: 18px; padding: 14px 24px; }
+    .pillar-row { margin-top: 20px; }
+    .shared-section { margin-top: 24px; }
+    .handoff-chain { gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <div class="header-label">White Orthodontics</div>
+    <h1>2026 Strategic Goals</h1>
+    <div class="header-sub">Building confidence through accountability, growth &amp; clinical excellence</div>
+  </div>
+
+  <div class="tree">
+
+    <div class="root-node">
+      <small>Vision</small>
+      White Orthodontics 2026
+    </div>
+
+    <div class="root-connector">
+      <div class="root-vert"></div>
+      <div class="root-horiz-wrapper">
+        <div class="root-horiz"></div>
+        <div class="root-drop left"></div>
+        <div class="root-drop center"></div>
+        <div class="root-drop right"></div>
+      </div>
+    </div>
+
+    <div class="pillar-row">
+      <div class="pillar accountability">
+        <div class="pillar-icon">⚖️</div>
+        <h2>Accountability</h2>
+        <p>Holding each other to a higher standard with clarity and ownership</p>
+      </div>
+      <div class="pillar developing">
+        <div class="pillar-icon">🌱</div>
+        <h2>Developing Our People</h2>
+        <p>Investing in growth through structured development and mentorship</p>
+      </div>
+      <div class="pillar clinical">
+        <div class="pillar-icon">🎯</div>
+        <h2>Clinical Expertise</h2>
+        <p>Elevating clinical skills for Dr. White and ortho coaches</p>
+      </div>
+    </div>
+
+    <div class="micro-connector">
+      <div class="micro-col"><div class="micro-line coral"></div></div>
+      <div class="micro-col"><div class="micro-line blue"></div></div>
+      <div class="micro-col"><div class="micro-line green"></div></div>
+    </div>
+
+    <div class="toggle-all-bar">
+      <button class="toggle-all-btn" onclick="toggleAll()">Expand All</button>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <!-- INITIATIVE CARDS                       -->
+    <!-- ══════════════════════════════════════ -->
+    <div class="initiative-row">
+
+      <!-- ═══ ACCOUNTABILITY ═══ -->
+      <div class="initiative-col">
+
+        <!-- Asana -->
+        <div class="initiative coral-border init-anim-1" onclick="toggleCard(this)">
+          <div class="init-header">
+            <div class="init-header-left">
+              <div class="init-title">Asana Implementation</div>
+              <div class="init-subtitle">Project &amp; task management for the full team</div>
+            </div>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="init-details">
+            <div class="init-details-inner">
+              <div class="detail-item">
+                <div class="detail-bullet coral"></div>
+                <div class="detail-text"><strong>Individual Task Tracking</strong> <span>— Each team member manages and tracks their own projects and tasks within Asana</span></div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-bullet coral"></div>
+                <div class="detail-text"><strong>Software Proficiency</strong> <span>— Building familiarity and expertise with Asana across the entire team through hands-on use</span></div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-bullet coral"></div>
+                <div class="detail-text"><strong>Transparent Workflows</strong> <span>— Visible progress and ownership that reinforces accountability at every level</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accountability Standards -->
+        <div class="initiative coral-border init-anim-2" onclick="toggleCard(this)">
+          <div class="init-header">
+            <div class="init-header-left">
+              <div class="init-title">Accountability Standards</div>
+              <div class="init-subtitle">Clear expectations and follow-through systems</div>
+            </div>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="init-details">
+            <div class="init-details-inner">
+              <div class="detail-item">
+                <div class="detail-bullet coral"></div>
+                <div class="detail-text"><strong>Defined Expectations</strong> <span>— Full list of roles and responsibilities created in collaboration between leadership and each team member</span></div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-bullet coral"></div>
+                <div class="detail-text"><strong>Performance Check-Ins</strong> <span>— Regular structured evaluations including patient tour assessments</span></div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-bullet coral"></div>
+                <div class="detail-text"><strong>Extreme Ownership</strong> <span>— Modeling the standard from the top, then holding others to it with fairness and consistency</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ═══ DEVELOPING OUR PEOPLE ═══ -->
+      <div class="initiative-col">
+
+        <!-- Development Calendar -->
+        <div class="initiative blue-border init-anim-3" onclick="toggleCard(this)">
+          <div class="init-header">
+            <div class="init-header-left">
+              <div class="init-title">Development Calendar</div>
+              <div class="init-subtitle">Structured growth planning for the full team</div>
+            </div>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="init-details">
+            <div class="init-details-inner">
+              <div class="detail-item">
+                <div class="detail-bullet blue"></div>
+                <div class="detail-text"><strong>Career Paths</strong> <span>— Clear progression tracks so every team member sees their future at White Ortho</span></div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-bullet blue"></div>
+                <div class="detail-text"><strong>Personal &amp; Professional Growth</strong> <span>— Structured learning, continuing education, and dedicated development days on the calendar</span></div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-bullet blue"></div>
+                <div class="detail-text"><strong>Role Playing &amp; Simulation</strong> <span>— Practice-based learning for patient interactions, consultations, and clinical scenarios</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust Transfer -->
+        <div class="initiative blue-border init-anim-4" onclick="toggleCard(this)">
+          <div class="init-header">
+            <div class="init-header-left">
+              <div class="init-title">Trust Transfer Mastery</div>
+              <div class="init-subtitle">Seamless handoffs that build patient confidence</div>
+            </div>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="init-details">
+            <div class="init-details-inner">
+              <div class="detail-item">
+                <div class="detail-bullet blue"></div>
+                <div class="detail-text"><strong>Trust Transfer Touch Points</strong> <span>— Every handoff in the patient journey, practiced until seamless:</span></div>
+              </div>
+              <div class="handoff-chain">
+                <div class="handoff-item">
+                  <span class="handoff-arrow">→</span>
+                  <div><span class="handoff-label">Concierge → Ortho Coach</span><br><span class="handoff-context">Existing appointments &amp; delivery appointments</span></div>
+                </div>
+                <div class="handoff-item">
+                  <span class="handoff-arrow">→</span>
+                  <div><span class="handoff-label">Concierge → Treatment Coordinator</span><br><span class="handoff-context">New patient appointments</span></div>
+                </div>
+                <div class="handoff-item">
+                  <span class="handoff-arrow">→</span>
+                  <div><span class="handoff-label">Treatment Coordinator → Ortho Coach</span><br><span class="handoff-context">When patient begins treatment (when possible)</span></div>
+                </div>
+                <div class="handoff-item">
+                  <span class="handoff-arrow">→</span>
+                  <div><span class="handoff-label">Ortho Coach → Concierge</span><br><span class="handoff-context">Upon checkout</span></div>
+                </div>
+                <div class="handoff-item">
+                  <span class="handoff-arrow">→</span>
+                  <div><span class="handoff-label">Patient → Parent</span><br><span class="handoff-context">Upon checkout — relaying what happened during the visit</span></div>
+                </div>
+                <div class="handoff-item">
+                  <span class="handoff-arrow">→</span>
+                  <div><span class="handoff-label">Ortho Coach → Doctor</span><br><span class="handoff-context">During appointments — full format: patient &amp; parent name (smooth, flowing delivery), personal detail, primary clinical concerns, treatment plan, timeline, and current progress</span></div>
+                </div>
+              </div>
+              <div class="connection-badge green-link" style="margin-top: 14px;">
+                <span class="badge-dot"></span>
+                Enables the Dedicated Coach Model
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ongoing Education -->
+        <div class="initiative blue-border init-anim-5" onclick="toggleCard(this)">
+          <div class="init-header">
+            <div class="init-header-left">
+              <div class="init-title">Ongoing Education</div>
+              <div class="init-subtitle">Workshops, webinars, conferences &amp; CE</div>
+            </div>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="init-details">
+            <div class="init-details-inner">
+              <div class="detail-item">
+                <div class="detail-bullet blue"></div>
+                <div class="detail-text"><strong>$2,000 CE Reimbursement</strong> <span>— Per team member, per year — covering workshops, webinars, conferences, and courses to stay current on industry innovations</span></div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-bullet blue"></div>
+                <div class="detail-text"><strong>Diverse Learning Formats</strong> <span>— In-person conferences, virtual webinars, hands-on workshops, and self-paced courses</span></div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-bullet blue"></div>
+                <div class="detail-text"><strong>Knowledge Sharing</strong> <span>— Team members bring back insights from CE events and share learnings with the full team during development days</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Celebrate Wins -->
+        <div class="initiative blue-border init-anim-6" onclick="toggleCard(this)">
+          <div class="init-header">
+            <div class="init-header-left">
+              <div class="init-title">Celebrate Wins</div>
+              <div class="init-subtitle">Recognizing achievements regularly</div>
+            </div>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="init-details">
+            <div class="init-details-inner">
+              <div class="detail-item">
+                <div class="detail-bullet blue"></div>
+                <div class="detail-text"><strong>Production Goals</strong> <span>— Recognizing when the team hits monthly production milestones</span></div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-bullet blue"></div>
+                <div class="detail-text"><strong>Five-Star Reviews</strong> <span>— Celebrating patient feedback that reflects the experience we're building</span></div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-bullet blue"></div>
+                <div class="detail-text"><strong>Start Targets</strong> <span>— Acknowledging when start goals are met, reinforcing growth momentum</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ═══ CLINICAL EXPERTISE ═══ -->
+      <div class="initiative-col">
+
+        <!-- Clinical Academy -->
+        <div class="initiative green-border init-anim-7" onclick="toggleCard(this)">
+          <div class="init-header">
+            <div class="init-header-left">
+              <div class="init-title">Clinical Academy &amp; CE</div>
+              <div class="init-subtitle">Certification, fellowship, and continuing education</div>
+            </div>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="init-details">
+            <div class="init-details-inner">
+              <div class="detail-item">
+                <div class="detail-bullet green"></div>
+                <div class="detail-text"><strong>12-Week Coach Certification</strong> <span>— White Ortho Clinical Academy transforming coaches into autonomous clinical partners</span></div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-bullet green"></div>
+                <div class="detail-text"><strong>Regular Assessments &amp; Modules</strong> <span>— Ongoing clinical module learning with structured assessments to validate knowledge and skill progression</span></div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-bullet green"></div>
+                <div class="detail-text"><strong>Aligner Intensive Fellowship</strong> <span>— Virtual course completion for advanced aligner therapy proficiency</span></div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-bullet green"></div>
+                <div class="detail-text"><strong>Ongoing CE</strong> <span>— Continuous learning to stay current with evidence-based orthodontic practices</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dedicated Coach Model -->
+        <div class="initiative green-border init-anim-8" onclick="toggleCard(this)">
+          <div class="init-header">
+            <div class="init-header-left">
+              <div class="init-title">Dedicated Coach Model</div>
+              <div class="init-subtitle">Each coach fully owns their patient's journey</div>
+            </div>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="init-details">
+            <div class="init-details-inner">
+              <div class="detail-item">
+                <div class="detail-bullet green"></div>
+                <div class="detail-text"><strong>Full Patient Ownership</strong> <span>— Coach owns the diagnosis, treatment plan, and every step of the patient journey from start to finish</span></div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-bullet green"></div>
+                <div class="detail-text"><strong>Dedicated Scheduling</strong> <span>— Patients scheduled in their respective ortho coach's columns to maintain continuity</span></div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-bullet green"></div>
+                <div class="detail-text"><strong>Continuity of Care</strong> <span>— Same coach stays with their patient throughout the entire treatment, building deep trust and accountability</span></div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-bullet green"></div>
+                <div class="detail-text"><strong>Clinical Autonomy</strong> <span>— Coaches operate as true clinical partners, not assistants — with Dr. White as collaborator and backstop</span></div>
+              </div>
+              <div class="connection-badge blue-link">
+                <span class="badge-dot"></span>
+                Powered by Trust Transfer Mastery
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOAP Notes -->
+        <div class="initiative green-border init-anim-9" onclick="toggleCard(this)">
+          <div class="init-header">
+            <div class="init-header-left">
+              <div class="init-title">AI-Powered SOAP Notes</div>
+              <div class="init-subtitle">Voice-driven clinical documentation</div>
+            </div>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="init-details">
+            <div class="init-details-inner">
+              <div class="detail-item">
+                <div class="detail-bullet green"></div>
+                <div class="detail-text"><strong>AI Scribe Integration</strong> <span>— Automated SOAP note generation from voice recordings during patient encounters</span></div>
+              </div>
+              <div class="detail-item">
+                <div class="detail-bullet green"></div>
+                <div class="detail-text"><strong>Efficiency &amp; Accuracy</strong> <span>— Reducing documentation time so coaches stay fully focused on the patient</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ── SHARED NODE ── -->
+    <div class="shared-section">
+      <div class="shared-label">Shared Initiative — Bridges Both Goals</div>
+      <div class="shared-drop"></div>
+      <div class="shared-node" onclick="toggleShared(this)">
+        <div class="shared-header">
+          <div class="shared-icon">🔗</div>
+          <h3>Roles &amp; Responsibilities</h3>
+          <p class="shared-desc">Co-developing clear role definitions with each team member — creating ownership that drives both personal accountability and professional development</p>
+          <div class="overlap-tags">
+            <span class="overlap-tag acct"><span class="dot"></span> Accountability</span>
+            <span class="overlap-tag dev"><span class="dot"></span> Developing Our People</span>
+          </div>
+        </div>
+        <div class="shared-details">
+          <div class="shared-details-inner">
+            <div class="shared-detail-item">
+              <div class="shared-bullet"></div>
+              <div class="detail-text"><strong>Team-Built Definitions</strong> <span>— Each person is a big part of building their own role definition, creating buy-in and ownership</span></div>
+            </div>
+            <div class="shared-detail-item">
+              <div class="shared-bullet"></div>
+              <div class="detail-text"><strong>Measurable Standards</strong> <span>— Action-oriented expectations that can be tracked and evaluated at any given moment</span></div>
+            </div>
+            <div class="shared-detail-item">
+              <div class="shared-bullet"></div>
+              <div class="detail-text"><strong>Growth Framework</strong> <span>— Role definitions become the foundation for career path conversations and development planning</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="shared-chevron-row">
+          <svg class="shared-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--coral)"></div> Accountability</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--blue)"></div> Developing Our People</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--green)"></div> Clinical Expertise</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:var(--purple);opacity:0.7"></div> Shared / Overlap</div>
+  </div>
+
+  <div class="footer">White Orthodontics &middot; Saginaw, Michigan &middot; 2026 Strategic Plan</div>
+
+</div>
+
+<script>
+  function toggleCard(el) {
+    el.classList.toggle('open');
+    updateToggleBtn();
+  }
+
+  function toggleShared(el) {
+    el.classList.toggle('open');
+    updateToggleBtn();
+  }
+
+  function toggleAll() {
+    const cards = document.querySelectorAll('.initiative, .shared-node');
+    const allOpen = [...cards].every(c => c.classList.contains('open'));
+    cards.forEach(c => {
+      if (allOpen) c.classList.remove('open');
+      else c.classList.add('open');
+    });
+    updateToggleBtn();
+  }
+
+  function updateToggleBtn() {
+    const cards = document.querySelectorAll('.initiative, .shared-node');
+    const allOpen = [...cards].every(c => c.classList.contains('open'));
+    document.querySelector('.toggle-all-btn').textContent = allOpen ? 'Collapse All' : 'Expand All';
+  }
+</script>
+
+</body>
+</html>
